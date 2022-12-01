@@ -1,0 +1,45 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:4.4.6
+    command: mongod --quiet
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongo:/data/db
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./backend
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    environment:
+      MONGODB_URL: mongodb://admin:admin@mongodb:27017
+    depends_on:
+      - mongodb
+  client:
+    build:
+      dockerfile: 'Dockerfile.dev'
+      context: './client'
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    environment:
+      - WDS_SOCKET_PORT=0
+      - SOCKET_IO_SOCKET_PORT=0
+  nginx:
+    restart: always
+    build:
+      dockerfile: 'Dockerfile.dev'
+      context: './nginx'
+    ports:
+      - '3051:80'
+    depends_on:
+      - api
+      - client
