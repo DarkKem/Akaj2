@@ -1,0 +1,1 @@
+export const url = process.env.NODE_ENV === 'production' ? 'http://serverURL' : 'http://localhost:3001'
