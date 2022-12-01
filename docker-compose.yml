@@ -21,8 +21,11 @@ services:
       - ./backend:/app
     environment:
       MONGODB_URL: mongodb://admin:admin@mongodb:27017
+      SERVER_PORT: 3001
     depends_on:
       - mongodb
+    ports:
+      - '3001:3001'
   client:
     build:
       dockerfile: 'Dockerfile.dev'
@@ -33,13 +36,15 @@ services:
     environment:
       - WDS_SOCKET_PORT=0
       - SOCKET_IO_SOCKET_PORT=0
-  nginx:
-    restart: always
-    build:
-      dockerfile: 'Dockerfile.dev'
-      context: './nginx'
     ports:
-      - '3051:80'
-    depends_on:
-      - api
-      - client
+      - '3000:3000'
+#  nginx:
+#    restart: always
+#    build:
+#      dockerfile: 'Dockerfile.dev'
+#      context: './nginx'
+#    ports:
+#      - '3051:80'
+#    depends_on:
+#      - api
+#      - client

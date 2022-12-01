@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
         match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
         index: true
     },
-    age: {
+    score: {
         type: Number,
         default: 0,
     },
