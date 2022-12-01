@@ -1,0 +1,65 @@
+.container {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    padding: 2rem;
+    background: #14161a;
+    border-radius: .25rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+
+    .inputGroup {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      text-align: start;
+
+      input {
+        padding: .5rem 1rem;
+        background: #282c34;
+        border: none;
+      }
+
+      p {
+        color: gray;
+      }
+    }
+
+    button {
+      padding: .5rem 1rem;
+      background: #282c34;
+      border: 1px solid transparent;
+      color: white;
+      transition: .25s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        background: #14161a;
+        border: 1px solid #282c34;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) and (max-width: 80rem) {
+  .container {
+    .form {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .container {
+    .form {
+      width: 20%;
+    }
+  }
+}
