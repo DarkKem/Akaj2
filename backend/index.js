@@ -52,7 +52,7 @@ app.use((req, res) => {
     res.sendFile(__dirname + '/public/html/404.html');
 });
 // Setup http server
-server.listen(parseInt(process.env.SERVER_PORT) || 5000, () => {
+server.listen(process.env.SERVER_PORT || 3002, () => {
     let {port} = server.address()
     console.log(`Listening on port ${port}`)
-})
+});
