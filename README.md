@@ -1,5 +1,16 @@
 # Akaj2
 
+
+# Installation
+
+- cloner le repo GIT
+- cd Akaj2/client
+- npm run start
+
+sur un autre terminal
+- cd Akaj2/backend
+- npm run start
+
 ## Bee The Hacker!
 Les differentes vulnérabilités à trouver :
 
