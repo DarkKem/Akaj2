@@ -5,6 +5,7 @@ const CardsSchema = new mongoose.Schema({
     name: {
         type: String,
         lowercase: true,
+        unique: false,
         required: [true, "can't be blank"],
         index: true
     },
