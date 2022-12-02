@@ -11,14 +11,14 @@ export const syphilis = (card, user, boss) => {
     let bossMessage = "";
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
-        case "Antibiotiques":
+    switch (card.name) {
+        case "antibiotiques":
             bossHp -= 5;
             break;
-        case "Préservatif":
+        case "préservatif":
             nbRoundInvincible = 1;
             break;
-        case "Abstinence sexuelle":
+        case "abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
     }

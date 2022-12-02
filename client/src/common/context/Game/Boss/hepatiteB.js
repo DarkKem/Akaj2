@@ -17,13 +17,13 @@ export const hepatiteB = (card, user, boss) => {
     let bossMessage = "";
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
-        case "Vaccination":
+    switch (card.name) {
+        case "vaccination":
             if (round <= 5) {
                 bossHp = 0;
             }
             break;
-        case "Traitement antiviral":
+        case "traitement antiviral":
             if (phaseAigue) {
                 degatParTour += 2;
             }
@@ -31,13 +31,13 @@ export const hepatiteB = (card, user, boss) => {
                 bossHp -= 2;
             }
             break;
-        case "Préservatif ":
+        case "préservatif ":
             nbRoundInvincible = 1;
             break;
-        case "Abstinence sexuelle":
+        case "abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
-        case "Greffe hépatique":
+        case "greffe hépatique":
             if (greffePossible) {
                 userHp = 100;
                 greffePossible = false;

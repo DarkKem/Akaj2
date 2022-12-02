@@ -21,14 +21,14 @@ export const vih = (card, user, boss) => {
     }
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
-        case "Antiviraux":
+    switch (card.name) {
+        case "antiviraux":
             attaqueDiviseur = 2;
             break;
-        case "Préservatif ":
+        case "préservatif ":
             nbRoundInvincible = 1;
             break;
-        case "Abstinence sexuelle":
+        case "abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
     }
