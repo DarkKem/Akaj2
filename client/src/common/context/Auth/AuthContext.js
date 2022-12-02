@@ -12,6 +12,7 @@ export const AuthProvider = ({children}) => {
                 avatar: '',
                 pv: 100,
                 state: '',
+                score: 0
             },
 
         }

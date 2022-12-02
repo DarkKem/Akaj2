@@ -6,56 +6,18 @@ import GameContext from "../../context/Game/GameContext";
 import Modal from "../Modal/Modal";
 import heart from "../../assets/icons/heart.svg"
 import {toast} from 'react-toastify'
+import {herpes} from "../../context/Game/Boss/herpes";
+import {hepatiteB} from "../../context/Game/Boss/hepatiteB";
+import cardsListFromJson from "../../utils/seedCards.json"
 
 const GameWrapper = () => {
     const {user} = useContext(AuthContext)
     const {dispatch, currentBoss} = useContext(GameContext)
     console.log(currentBoss)
-    const cards = [
-        {
-            img: "/logo192.png",
-            cardName: "Le",
-            cardDescription: "Lorem ipsum dolor ite sum",
-            cardType: "Attaque",
-            cardEffect: "-5pv",
-            selected: false
-        },
-        {
-            img: "/logo192.png",
-            cardName: "Le2",
-            cardDescription: "Lorem ipsum dolor ite sum",
-            cardType: "Defense",
-            cardEffect: "+5pv",
-            selected: false
-        },
-        {
-            img: "/logo192.png",
-            cardName: "Le3",
-            cardDescription: "Lorem ipsum dolor ite sum",
-            cardType: "Defense",
-            cardEffect: "+5pv",
-            selected: false
-        },
-        {
-            img: "/logo192.png",
-            cardName: "Le4",
-            cardDescription: "Lorem ipsum dolor ite sum",
-            cardType: "Defense",
-            cardEffect: "+5pv",
-            selected: false
-        },
-        {
-            img: "/logo192.png",
-            cardName: "Le5",
-            cardDescription: "Lorem ipsum dolor ite sum",
-            cardType: "Defense",
-            cardEffect: "+5pv",
-            selected: false
-        }
-    ]
+
     const [showModal, setShowModal] = useState(false);
     const [showMonsterModal, setShowMonsterModal] = useState(false)
-    const [cardsList, setCardsList] = useState(cards.map((card) => card));
+    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card.boss === currentBoss.name));
     const handleSelectCard = (cardFromChild) => {
         setCardsList(cardsList.map((cardObject) => ({
                 ...cardObject,
@@ -71,15 +33,23 @@ const GameWrapper = () => {
         if (selectedCard) {
             //    KEMO TU FAIS TON CODE ICI
             switch (currentBoss.name) {
-                case "herpès génital":
-                    const {herpes, test} = require("../../context/Game/Boss/herpes")
-                    const attack = herpes(selectedCard, user, currentBoss)
-                    dispatch({type: 'SET_CURRENT_BOSS', payload: attack.boss})
-                    dispatch({type: 'SET_CURRENT_USER', payload: attack.user})
+                case "Herpès génital":
+                    const {herpes} = require("../../context/Game/Boss/herpes")
+                    const attackHerpes = herpes(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackHerpes.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackHerpes.user})
                     break
                 case "Hépatite B":
+                    const {hepatiteB} = require("../../context/Game/Boss/hepatiteB")
+                    const attackHepatite = hepatiteB(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackHepatite.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackHepatite.user})
                     break
                 case "Syphilis":
+                    const {syphilis} = require("../../context/Game/Boss/syphilis")
+                    const attackSyphilis = syphilis(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackSyphilis.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackSyphilis.user})
                     break
                 case "Papillomavirus":
                     break
@@ -105,7 +75,8 @@ const GameWrapper = () => {
     return (
         <div className={style.container}>
             <div className={style.monsterWrapper}>
-                <img src={currentBoss?.image || "./logo192.png"} alt={"monstername"}/>
+                <img src={`${currentBoss?.image.replaceAll('client/public/', './')}` || "./logo192.png"}
+                     alt={"monstername"}/>
                 <span className={style.monsterPV} style={{backgroundImage: `url(${heart}`}}>{currentBoss?.pv}</span>
                 <button type={"button"} onClick={() => setShowMonsterModal(true)}
                         className={style.monsterButton}>?

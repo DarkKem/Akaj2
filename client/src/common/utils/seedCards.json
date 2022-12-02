@@ -1,0 +1,128 @@
+[
+    {
+        "name": "Préservatif",
+        "type": "Defense",
+        "description": "Intouchable pendant 1 tour",
+        "boss": "638997fc9e7a0f498e1655c4"
+    },
+    {
+        "name": "Abstinence sexuelle",
+        "type": "Defense",
+        "description": "Intouchable pendant 2 tours",
+        "boss": "638997fc9e7a0f498e1655c4"
+    },
+    {
+        "name": "Traitement antiviral",
+        "type": "Attaque",
+        "description": "-14PV, si utilisez dans les 5 premiers tours, sinon -4PV",
+        "boss": "herpès génital"
+    },
+    {
+        "name": "Vaccination",
+        "type": "Attaque",
+        "description": "Gagne la partie, si utilisé dans les 5 premiers tours",
+        "boss": "638998209e7a0f498e1655c7"
+    },
+    {
+        "name": "Traitement antiviral",
+        "type": "Attaque",
+        "description": "-4PV. Si Hépatite en phase aigue -2Pv par tour pour le joueur",
+        "boss": "638998209e7a0f498e1655c7"
+    },
+    {
+        "name": "Greffe hépatique",
+        "type": "Defense",
+        "description": "1 seul fois par partie, soigne entièrement le joueur",
+        "boss": "638998209e7a0f498e1655c7"
+    },
+    {
+        "name": "Préservatif",
+        "type": "Defense",
+        "description": "Intouchable pendant 1 tour",
+        "boss": "638998209e7a0f498e1655c7"
+    },
+    {
+        "name": "Abstinence sexuelle",
+        "type": "Defense",
+        "description": "Intouchable pendant 2 tours",
+        "boss": "638998209e7a0f498e1655c7"
+    },
+    {
+        "name": "Antibiotiques",
+        "type": "Attaque",
+        "description": "-5Pv, 3 tours après son utilisation, vous gagnez la partie",
+        "boss": "Syphilis"
+    },
+    {
+        "name": "Préservatif",
+        "type": "Defense",
+        "description": "Intouchable pendant 1 tour",
+        "boss": "Syphilis"
+    },
+    {
+        "name": "Abstinence sexuelle",
+        "type": "Defense",
+        "description": "Intouchable pendant 2 tours",
+        "boss": "Syphilis"
+    },
+    {
+        "name": "Chirurgie ",
+        "type": "Attaque",
+        "description": "Gagne instantanément la partie",
+        "boss": "Papillomavirus"
+    },
+    {
+        "name": "Curiethérapie ",
+        "type": "Attaque",
+        "description": "3 tours après, vous gagnez la partie",
+        "boss": "Papillomavirus"
+    },
+    {
+        "name": "Vaccination",
+        "type": "Defense",
+        "description": "Réduit de 50% les chances d'infections",
+        "boss": "Papillomavirus"
+    },
+    {
+        "name": "Frottis ",
+        "type": "Defense",
+        "description": "Réduit de 30% les chances d'infections",
+        "boss": "Papillomavirus"
+    },
+    {
+        "name": "Antibiotiques",
+        "type": "Attaque",
+        "description": "-5PV. Vous gagnez la partie 3 tours après",
+        "boss": "Chlamydiose"
+    },
+    {
+        "name": "Préservatif",
+        "type": "Defense",
+        "description": "Intouchable pendant 1 tour",
+        "boss": "Chlamydiose"
+    },
+    {
+        "name": "Abstinence sexuelle",
+        "type": "Defense",
+        "description": "Intouchable pendant 2 tours",
+        "boss": "Chlamydiose"
+    },
+    {
+        "name": "Antiviraux ",
+        "type": "Attaque",
+        "description": "Divise par 2 la prochaine attaque",
+        "boss": "VIH"
+    },
+    {
+        "name": "Préservatif",
+        "type": "Defense",
+        "description": "Intouchable pendant 1 tour",
+        "boss": "VIH"
+    },
+    {
+        "name": "Abstinence sexuelle",
+        "type": "Defense",
+        "description": "Intouchable pendant 2 tours",
+        "boss": "VIH"
+    }
+]

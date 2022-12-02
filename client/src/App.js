@@ -12,6 +12,7 @@ import { useEffect,useRouter,useState } from 'react';
 
 import {AuthProvider} from "./common/context/Auth/AuthContext";
 import {GameProvider} from "./common/context/Game/GameContext";
+import Success from "./common/page/Success/Success";
 
 const excludedPath = ["/game"]
 
@@ -36,6 +37,8 @@ function App() {
                             <Route exact path={"/"} element={<Welcome/>}/>
                             <Route path={"/game"} element={<Home/>}/>
                             <Route path={"/classement"} element={<Classement/>}/>
+                            <Route path={"/Success"} element={<Success/>}/>
+                            <Route path={"/game-over"} element={<Classement/>}/>
                             <Route path={"/admin"} element={<Err418/>}/>
                             <Route path={"/admin/server-data"} element={<Err418/>}/>
                             <Route path={"/admin/Credentials"} element={<Err418/>}/>
