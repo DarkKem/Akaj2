@@ -15,7 +15,7 @@ export const papillomavirus = (card, user, boss) => {
     let chanceInfection = 0.8;
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
+    switch (card.name) {
         case "Chirurgie":
             if (lesionCancereuse) bossHp = 0;
             break;

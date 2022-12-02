@@ -39,7 +39,6 @@ const Home = () => {
         })
         dispatch({type: 'SET_BOSS_INDEX', payload: bossIndex + 1})
         if (bossIndex >= bossList.length  ) {
-            alert("the game is finished")
             dispatch({type: 'SET_BOSS_INDEX', payload: 0})
             navigate("/Success")
         }
@@ -57,7 +56,6 @@ const Home = () => {
     }, [user, currentBoss]);
     return (
         <div>
-            <button type={"button"} onClick={handleNextFight}>next fight</button>
             <GameWrapper/>
         </div>
     );
