@@ -21,7 +21,7 @@ export const vih = (card, user, boss) => {
     }
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
+    switch (card.name) {
         case "Antiviraux":
             attaqueDiviseur = 2;
             break;

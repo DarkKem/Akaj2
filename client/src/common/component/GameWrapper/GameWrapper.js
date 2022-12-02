@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import style from './GameWrapper.module.scss'
 import Card from "../Card/Card";
 import AuthContext from "../../context/Auth/AuthContext";
@@ -9,19 +9,22 @@ import {toast} from 'react-toastify'
 import {herpes} from "../../context/Game/Boss/herpes";
 import {hepatiteB} from "../../context/Game/Boss/hepatiteB";
 import cardsListFromJson from "../../utils/seedCards.json"
+import {syphilis} from "../../context/Game/Boss/syphilis";
+import {papillomavirus} from "../../context/Game/Boss/papillomavirus";
 
 const GameWrapper = () => {
     const {user} = useContext(AuthContext)
     const {dispatch, currentBoss} = useContext(GameContext)
-    console.log(currentBoss)
-
     const [showModal, setShowModal] = useState(false);
     const [showMonsterModal, setShowMonsterModal] = useState(false)
-    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card.boss === currentBoss.name));
+    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card.boss === currentBoss._id));
+    useEffect(() => {
+        setCardsList(cardsListFromJson.filter((card) => card?.boss === currentBoss._id))
+    }, [currentBoss]);
     const handleSelectCard = (cardFromChild) => {
         setCardsList(cardsList.map((cardObject) => ({
                 ...cardObject,
-                selected: cardObject.cardName === cardFromChild.cardName
+                selected: cardObject?.name === cardFromChild?.name
             }
         )))
     }
@@ -33,29 +36,44 @@ const GameWrapper = () => {
         if (selectedCard) {
             //    KEMO TU FAIS TON CODE ICI
             switch (currentBoss.name) {
-                case "Herpès génital":
+                case "herpès génital":
                     const {herpes} = require("../../context/Game/Boss/herpes")
                     const attackHerpes = herpes(selectedCard, user, currentBoss)
                     dispatch({type: 'SET_CURRENT_BOSS', payload: attackHerpes.boss})
                     dispatch({type: 'SET_CURRENT_USER', payload: attackHerpes.user})
                     break
-                case "Hépatite B":
+                case "hépatite b":
                     const {hepatiteB} = require("../../context/Game/Boss/hepatiteB")
                     const attackHepatite = hepatiteB(selectedCard, user, currentBoss)
                     dispatch({type: 'SET_CURRENT_BOSS', payload: attackHepatite.boss})
                     dispatch({type: 'SET_CURRENT_USER', payload: attackHepatite.user})
                     break
-                case "Syphilis":
+                case "syphilis":
                     const {syphilis} = require("../../context/Game/Boss/syphilis")
                     const attackSyphilis = syphilis(selectedCard, user, currentBoss)
                     dispatch({type: 'SET_CURRENT_BOSS', payload: attackSyphilis.boss})
                     dispatch({type: 'SET_CURRENT_USER', payload: attackSyphilis.user})
                     break
-                case "Papillomavirus":
+                case "papillomavirus":
+
+                    const {papillomavirus} = require("../../context/Game/Boss/papillomavirus")
+                    const attackpapillomavirus = papillomavirus(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackpapillomavirus.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackpapillomavirus.user})
                     break
-                case "Chlamydiose":
+                case "chlamydiose":
+
+                    const {chlamydiose} = require("../../context/Game/Boss/chlamydiose")
+                    const attackchlamydiose = chlamydiose(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackchlamydiose.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackchlamydiose.user})
                     break
-                case "VIH":
+                case "vih":
+
+                    const {vih} = require("../../context/Game/Boss/vih")
+                    const attackvih = vih(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attackvih.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attackvih.user})
                     break
                 default:
                     toast.error("Virus inconnu")

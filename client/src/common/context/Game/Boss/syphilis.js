@@ -11,7 +11,7 @@ export const syphilis = (card, user, boss) => {
     let bossMessage = "";
 
     // La carte que le joueur a choisi
-    switch (card.cardName) {
+    switch (card.name) {
         case "Antibiotiques":
             bossHp -= 5;
             break;
