@@ -12,17 +12,17 @@ export const herpes = (card, user, boss) => {
 
     // La carte que le joueur a choisi
     switch (card.name) {
-        case "Traitement antiviral":
+        case "traitement antiviral":
             if (round <= 5) {
                 bossHp -= 14;
             } else {
                 bossHp -= 4;
             }
             break;
-        case "Préservatif":
+        case "préservatif":
             nbRoundInvincible = 1;
             break;
-        case "Abstinence sexuelle":
+        case "abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
     }

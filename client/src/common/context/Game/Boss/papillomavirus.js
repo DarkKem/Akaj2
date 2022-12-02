@@ -15,19 +15,20 @@ export const papillomavirus = (card, user, boss) => {
     let chanceInfection = 0.8;
 
     // La carte que le joueur a choisi
-    switch (card.name) {
-        case "Chirurgie":
-            if (lesionCancereuse) bossHp = 0;
+    switch (card.name.trim()) {
+        case "chirurgie":
+            if (lesionCancereuse)
+                bossHp = 0;
             break;
-        case "Curiethérapie":
+        case "curiethérapie":
             if (lesionPrecancereuse && delayAvantVictoire === -1) {
                 delayAvantVictoire = 3;
             }
             break;
-        case "Vaccination":
+        case "vaccination":
             chanceInfection = chanceInfection / 2;
             break;
-        case "Frottis":
+        case "frottis":
             chanceInfection = chanceInfection / (1 / 3);
             break;
     }
@@ -53,6 +54,7 @@ export const papillomavirus = (card, user, boss) => {
             if ((lesionCancereuse = Math.random() < 0.2)) {
                 bossMessage = "Lesion cancereuse.";
                 degatParTour = 10;
+
             }
         }
     }
