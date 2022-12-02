@@ -4,8 +4,7 @@ const AuthReducer = (state, action) => {
             localStorage.setItem("user", JSON.stringify(action.payload))
             return {
                 ...state,
-                user: action.payload
-
+                user: JSON.stringify(action.payload)
             }
 
         default:
