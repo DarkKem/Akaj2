@@ -1,3 +1,16 @@
-# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
 Disallow:
+#Allow: /
+
+#SiteMap :
+#/
+#/welcome
+#/classement
+
+
+
+#/admin
+#/admin/Server-data
+#/admin/Credentials
+#/ultraAdmin
