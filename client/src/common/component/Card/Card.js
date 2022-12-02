@@ -1,9 +1,10 @@
 import React from 'react';
 import style from "./Card.module.scss";
 
-const Card = ({card, handleSelect}) => {
+const Card = ({card, handleSelect, nbCard}) => {
     return (
-        <button type={"button"} className={`${style.card} ${card.selected ? style.selected : ''}`}
+        <button style={{width: `calc(100% / ${nbCard})`}} type={"button"}
+                className={`${style.card} ${card.selected ? style.selected : ''}`}
                 onClick={() => handleSelect(card)}>
             <input type="radio" onChange={() => {
                 handleSelect(card)

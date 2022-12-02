@@ -1,7 +1,7 @@
 const GameReducer = (state, action) => {
     switch (action.type) {
         case 'SET_CURRENT_BOSS':
-            console.log(action.payload)
+            localStorage.setItem("currentBoss", JSON.stringify(action.payload || {}))
             return {
                 ...state,
                 currentBoss: action.payload

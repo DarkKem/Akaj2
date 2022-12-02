@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 // Setup mongodb Connection
 const mongoose = require("mongoose");
 mongoose.connect(
-    process.env.MONGODB_URL,
+    'mongodb+srv://root:Nancyakaj2@cluster0.odhti.mongodb.net/akaj2?authSource=admin&replicaSet=atlas-1gljjf-shard-0&readPreference=primary',
     // 'mongodb+srv://admin:admin@cluster0.inwitqb.mongodb.net/?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,

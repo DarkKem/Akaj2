@@ -5,6 +5,7 @@ import {toast} from 'react-toastify'
 import GameContext from "../../context/Game/GameContext";
 import AuthContext from "../../context/Auth/AuthContext";
 import {useNavigate} from "react-router-dom";
+import baseApiUrl from "../../../config/baseApiUrl";
 
 const Home = () => {
     const navigate = useNavigate()
@@ -37,8 +38,8 @@ const Home = () => {
                 pv: 100
             }
         })
-        dispatch({type: 'SET_BOSS_INDEX', payload: bossIndex + 1})
-        console.log('currfent boss', bossList[bossIndex])
+
+        dispatch({type: 'SET_BOSS_INDEX', payload:  bossIndex + 1})
         dispatch({type: 'SET_CURRENT_BOSS', payload: bossList[bossIndex]})
         if (bossIndex >= bossList.length) {
             dispatch({type: 'SET_BOSS_INDEX', payload: 0})

@@ -1,6 +1,5 @@
 .card {
   border: 1px solid transparent;
-  width: calc((100% / 5) - 1% );
   height: 200px;
   margin-top: auto;
   display: flex;
@@ -28,5 +27,10 @@
     height: 75px;
     width: 100%;
     object-fit: contain;
+  }
+}
+@media screen and (max-width: 48rem) {
+  .card{
+    width: 100% !important;
   }
 }

@@ -8,19 +8,37 @@ import heart from "../../assets/icons/heart.svg"
 import {toast} from 'react-toastify'
 import {herpes} from "../../context/Game/Boss/herpes";
 import {hepatiteB} from "../../context/Game/Boss/hepatiteB";
-import cardsListFromJson from "../../utils/seedCards.json"
 import {syphilis} from "../../context/Game/Boss/syphilis";
 import {papillomavirus} from "../../context/Game/Boss/papillomavirus";
+import axios from "axios"
+import baseApiUrl from "../../../config/baseApiUrl";
 
-const GameWrapper = () => {
+const GameWrapper = ({cardsFromBDD}) => {
     const {user} = useContext(AuthContext)
     const {dispatch, currentBoss} = useContext(GameContext)
     const [showModal, setShowModal] = useState(false);
     const [showMonsterModal, setShowMonsterModal] = useState(false)
-    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card?.boss === currentBoss?._id));
+    const [cardsList, setCardsList] = useState([]);
     useEffect(() => {
-        setCardsList(cardsListFromJson.filter((card) => card?.boss === currentBoss?._id))
+        const fetchCards = async () => {
+            try {
+                if (currentBoss?._id !== undefined) {
+                    const cardsListRes = await axios.get(`${baseApiUrl}/cards/boss/${currentBoss?._id}`)
+                    console.log(cardsListRes.data)
+                    setCardsList(cardsListRes.data)
+                }
+            } catch (e) {
+                console.error(e)
+            }
+        }
+        fetchCards()
     }, [currentBoss]);
+    // useEffect(() => {
+    //     console.log('cardsList', cardsList, 'currentBoss', currentBoss, cardsFromBDD.filter((card) => {
+    //         console.log(card?.boss, currentBoss?._id)
+    //         return card?.boss === currentBoss?._id
+    //     }))
+    // }, [cardsList]);
     const handleSelectCard = (cardFromChild) => {
         setCardsList(cardsList.map((cardObject) => ({
                 ...cardObject,
@@ -125,7 +143,7 @@ const GameWrapper = () => {
                 <form className={style.formCardWrapper} onSubmit={handleSubmit}>
                     <div className={style.cardWrapper}>
                         {cardsList.map((card, key) => (
-                            <Card key={key} card={card} handleSelect={handleSelectCard}/>
+                            <Card key={key} card={card} handleSelect={handleSelectCard} nbCard={cardsList.length}/>
                         ))}
 
                     </div>

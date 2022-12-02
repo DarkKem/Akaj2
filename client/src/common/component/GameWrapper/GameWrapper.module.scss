@@ -54,6 +54,7 @@
       right: 0;
       font-size: .75rem;
       transition: .25s ease-in-out;
+
       &:hover {
         cursor: pointer;
         background-color: #282c34;
@@ -148,6 +149,7 @@
       .cardWrapper {
         display: flex;
         width: 100%;
+        gap: 1rem;
       }
 
       button[type="submit"] {
@@ -202,5 +204,10 @@
         cursor: pointer;
       }
     }
+  }
+}
+@media screen and (max-width: 48rem) {
+  .cardWrapper{
+    flex-direction: column;
   }
 }
