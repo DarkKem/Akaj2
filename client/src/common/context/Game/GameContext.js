@@ -7,7 +7,12 @@ export const GameProvider = ({children}) => {
 
 
     const initialState = {
-        boss: localStorage.getItem("boss") || 0
+        bossList: JSON.parse(localStorage.getItem("bossList")) || [],
+        currentBoss: JSON.parse(localStorage.getItem("currentBoss")) || {
+            "pv": 100,
+            image: ""
+        },
+        bossIndex: parseInt(localStorage.getItem("bossIndex")) || 0
     }
     const [state, dispatch] = useReducer(GameReducer, initialState)
 

@@ -8,17 +8,81 @@
   gap: 1rem;
 
   .monsterWrapper {
-    display: flex;
-    height: 30vh;
-    flex-direction: column;
+    margin-top: 1rem;
+    height: 40vh;
     margin-left: auto;
     margin-right: 5rem;
-    padding: 1rem;
+    position: relative;
 
     img {
-      margin-top: 1rem;
       width: 125px;
       height: 125px;
+      background-color: white;
+      border-radius: 50%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .monsterPV {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: white;
+      background: center no-repeat;
+      background-size: contain;
+      width: 2.5rem;
+      height: 2rem;
+      display: flex;
+      font-size: .75rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .monsterButton {
+      position: absolute;
+      border: none;
+      background-color: gray;
+      color: white;
+      border-radius: 50%;
+      padding: .5rem;
+      width: 1.5625rem;
+      height: 1.5625rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0;
+      font-size: .75rem;
+      transition: .25s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: #282c34;
+      }
+    }
+
+    .monsterInfosWrapper {
+      position: absolute;
+      top: 120px;
+      background-color: #282c34;
+      border-radius: 5px;
+      width: 80%;
+      color: white;
+      padding: .5rem;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+
+
+      .monsterName {
+
+      }
+
+      .monsterText {
+        font-size: .75rem;
+      }
     }
   }
 
@@ -33,33 +97,110 @@
     .userInfosWrapper {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      position: relative;
 
       img {
         width: 125px;
         height: 125px;
+        background-color: white;
+        border-radius: 50%;
+        object-fit: contain;
+        object-position: center;
       }
 
-      .userPvWrapper {
+      .userPv {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        background: center no-repeat;
+        background-size: contain;
+        width: 2.5rem;
+        height: 2rem;
         display: flex;
-        flex-direction: column;
+        font-size: .75rem;
+        justify-content: center;
+        align-items: center;
+      }
 
-        span {
-          text-align: start;
-          width: 100%;
-          display: block;
-        }
+      .userUsername {
+        position: absolute;
+        top: 100px;
+        background-color: #282c34;
+        border-radius: 5px;
+        width: 50%;
+        color: white;
+        padding: .5rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
       }
     }
 
-    .cardWrapper {
-      width: 100%;
+    .formCardWrapper {
+      width: 50%;
       display: flex;
+      flex-direction: column;;
+      align-items: center;
+      gap: 1rem;
 
+      .cardWrapper {
+        display: flex;
+        width: 100%;
+      }
 
+      button[type="submit"] {
+        width: 50%;
+        background-color: #282c34;
+        border: transparent 1px solid;
+        transition: .25s ease-in-out;
+        padding: .5rem 1rem;
+        color: white;
+        border-radius: 5px;
+
+        &:hover {
+          border: #282c34 1px solid;
+          background-color: antiquewhite;
+          cursor: pointer;
+          color: #282c34;
+        }
+      }
     }
   }
 
   .chat {
-    min-height: 30vh;
+    min-height: 20vh;
+  }
+
+  .wrapperText {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .wrapperButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: lightgray;
+    padding: 1rem;
+
+    button {
+      padding: .5rem 1rem;
+      background-color: antiquewhite;
+      border: #282c34 1px solid;
+      border-radius: 5px;
+
+      &.cancelButton {
+        background-color: #ffd1d1;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
