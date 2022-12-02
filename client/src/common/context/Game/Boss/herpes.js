@@ -72,3 +72,6 @@ export const herpes = (card, user, boss) => {
     user.state = nbRoundBrulure > 0 ? "Brulure " + nbRoundBrulure + "tours" : user.state;
     return { user, boss, bossMessage };
 };
+export const test =()=>{
+    console.log('test')
+}

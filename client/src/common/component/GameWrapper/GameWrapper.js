@@ -5,10 +5,12 @@ import AuthContext from "../../context/Auth/AuthContext";
 import GameContext from "../../context/Game/GameContext";
 import Modal from "../Modal/Modal";
 import heart from "../../assets/icons/heart.svg"
+import {toast} from 'react-toastify'
 
 const GameWrapper = () => {
     const {user} = useContext(AuthContext)
-    const {boss} = useContext(GameContext)
+    const {dispatch, currentBoss} = useContext(GameContext)
+    console.log(currentBoss)
     const cards = [
         {
             img: "/logo192.png",
@@ -61,12 +63,33 @@ const GameWrapper = () => {
             }
         )))
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+
         const selectedCard = cardsList.filter((card) => card.selected)[0]
         if (selectedCard) {
-            console.log(selectedCard)
             //    KEMO TU FAIS TON CODE ICI
+            switch (currentBoss.name) {
+                case "herpès génital":
+                    const {herpes, test} = require("../../context/Game/Boss/herpes")
+                    const attack = herpes(selectedCard, user, currentBoss)
+                    dispatch({type: 'SET_CURRENT_BOSS', payload: attack.boss})
+                    dispatch({type: 'SET_CURRENT_USER', payload: attack.user})
+                    break
+                case "Hépatite B":
+                    break
+                case "Syphilis":
+                    break
+                case "Papillomavirus":
+                    break
+                case "Chlamydiose":
+                    break
+                case "VIH":
+                    break
+                default:
+                    toast.error("Virus inconnu")
+            }
 
         }
 
@@ -82,19 +105,19 @@ const GameWrapper = () => {
     return (
         <div className={style.container}>
             <div className={style.monsterWrapper}>
-                <img src={"/virus/virus(1).png"} alt={"monstername"}/>
-                <span className={style.monsterPV} style={{backgroundImage: `url(${heart}`}}>PV</span>
+                <img src={currentBoss?.image || "./logo192.png"} alt={"monstername"}/>
+                <span className={style.monsterPV} style={{backgroundImage: `url(${heart}`}}>{currentBoss?.pv}</span>
                 <button type={"button"} onClick={() => setShowMonsterModal(true)}
                         className={style.monsterButton}>?
                 </button>
                 <div className={style.monsterInfosWrapper}>
-                    <span className={style.monsterName}>monster name</span>
+                    <span className={style.monsterName}>{currentBoss?.name}</span>
 
                 </div>
                 <Modal setShowModal={setShowMonsterModal} showModal={showMonsterModal}>
                     <div className={style.wrapperText}>
-                        <span className={style.monsterName}>monster name</span>
-                        <span className={style.monsterText}>Monster description</span>
+                        <span className={style.monsterName}>{currentBoss?.name}</span>
+                        <span className={style.monsterText}>{currentBoss?.description}</span>
                     </div>
                     <div className={style.wrapperButton}>
                         <button type={"button"} className={`${style.cancelButton}`}
