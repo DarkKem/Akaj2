@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import style from './Welcome.module.scss'
 import {createUser} from "../../context/Auth/AuthActions";
 import AuthContext from '../../context/Auth/AuthContext';
