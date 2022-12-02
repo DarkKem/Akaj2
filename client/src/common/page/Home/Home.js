@@ -55,7 +55,7 @@ const Home = () => {
             navigate("/game-over")
         }
 
-    }, [user.pv, currentBoss.pv]);
+    }, [user?.pv, currentBoss?.pv]);
     return (
         <div>
             <GameWrapper/>
