@@ -70,5 +70,5 @@ export const herpes = (card, user, boss) => {
     user.pv = userHp;
     user.state = nbRoundInvincible > 0 ? "Proteger " + nbRoundInvincible + "tours" : "";
     user.state = nbRoundBrulure > 0 ? "Brulure " + nbRoundBrulure + "tours" : user.state;
-    return { user, boss };
+    return { user, boss, bossMessage };
 };
