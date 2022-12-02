@@ -46,10 +46,10 @@ const Home = () => {
 
     }
     useEffect(() => {
-        if (currentBoss?.pv <= 0) {
+        if (currentBoss?.pv === 0) {
             handleNextFight()
         }
-        if (user?.pv <= 0) {
+        if (user?.pv === 0) {
             navigate("/game-over")
         }
 
