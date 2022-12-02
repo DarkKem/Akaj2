@@ -9,7 +9,11 @@ export const AuthProvider = ({children}) => {
         user: localStorage.getItem("user") || {
             username: '',
             avatar: '',
-        }
+            pv: 100,
+            state: '',
+        },
+        boss: localStorage.getItem("boss") || 0
+
     }
     const [state, dispatch] = useReducer(AuthReducer, initialState)
 
