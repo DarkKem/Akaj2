@@ -38,7 +38,8 @@ const Home = () => {
             }
         })
         dispatch({type: 'SET_BOSS_INDEX', payload: bossIndex + 1})
-        if (bossIndex >= bossList.length  ) {
+        dispatch({type: 'SET_CURRENT_BOSS', payload: bossList[bossIndex]})
+        if (bossIndex >= bossList.length) {
             dispatch({type: 'SET_BOSS_INDEX', payload: 0})
             navigate("/Success")
         }
