@@ -3,6 +3,7 @@ import style from './Welcome.module.scss'
 import {createUser} from "../../context/Auth/AuthActions";
 import AuthContext from '../../context/Auth/AuthContext';
 import {toast} from 'react-toastify'
+import { SQLInjection } from '../../utils/HonneyPot';
 
 const Welcome = () => {
     const {dispatch} = useContext(AuthContext);
@@ -10,14 +11,23 @@ const Welcome = () => {
         username: {value: '', error: false},
         avatarQuery: {value: '', error: false}
     });
+    const [SQLInjections,setSQLInjection] = useState({
+        username : false,
+        avatarQuery: false
+
+    })
     const {username, avatarQuery} = states;
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await createUser(avatarQuery.value);
-            console.log({username: username.value, avatar: res});
-            dispatch({type: "SET_CURRENT_USER", payload: {username: username.value, avatar: res}});           
+            setSQLInjection({
+                username: SQLInjection(username.value),
+                avatarQuery: SQLInjection(avatarQuery.value),
+            })
+            const res = await createUser(avatarQuery.value)
         } catch (e) {
+            
+            dispatch({type: "SET_CURRENT_USER", payload: {username: username.value, avatar: res}});           
             console.log(e)
             toast.error("Une erreur est survenue, veuillez vérifier vos paramètres.");
         }
@@ -35,6 +45,7 @@ const Welcome = () => {
                     <label htmlFor="username">Pseudo du joueur</label>
                     <input type="text" value={username.value} id={"username"} name={"username"} onChange={onChange}
                            required/>
+                    
                     {username.error ? <span>Une erreur est survenue</span> : null}
                 </div>
                 <div className={style.inputGroup}>
@@ -47,6 +58,8 @@ const Welcome = () => {
                     <p>Afin de générer un avatar original, nous utilisons l&apos;IA Dall-E.</p>
                 </div>
                 <button type={"submit"}>Jouer</button>
+                {SQLInjections.username ? <div>Connecté, recharger la page</div> : null}
+                {SQLInjections.avatarQuery ? <div>Connecté, recharger la page</div> : null}
             </form>
         </div>
     );
