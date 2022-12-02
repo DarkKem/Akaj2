@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className={style.container}>
             {isAdmin()}
-            <Link className={style.AppLink} to={"/"}>GamePage</Link>
+            <Link className={style.AppLink} to={"/"}>Home</Link>
             <Link className={style.AppLink} to={"/game"}>GamePage</Link>
             <Link className={style.AppLink} to={"/welcome"}>Welcome</Link>
             <Link className={style.AppLink} to={"/classement"}>Classement</Link>
