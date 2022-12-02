@@ -7,8 +7,7 @@ export const GameProvider = ({children}) => {
 
 
     const initialState = {
-        currentGame: localStorage.getItem("currentGame") || {},
-
+        boss: localStorage.getItem("boss") || 0
     }
     const [state, dispatch] = useReducer(GameReducer, initialState)
 

@@ -1,10 +1,10 @@
 const GameReducer = (state, action) => {
     switch (action.type) {
-        case 'SET_CURRENT_CHAT':
-            localStorage.setItem("currentGame", JSON.stringify(action.payload))
+        case 'SET_CURRENT_BOSS':
+            localStorage.setItem("boss", action.payload)
             return {
-                ...state,
-                ...action.payload
+
+                boss: action.payload
             }
         default:
             return state
