@@ -25,10 +25,8 @@ const Welcome = () => {
                 avatarQuery: SQLInjection(avatarQuery.value),
             })
             const res = await createUser(avatarQuery.value)
+            dispatch({type: "SET_CURRENT_USER", payload: {username: username.value, avatar: res}}); 
         } catch (e) {
-            
-            dispatch({type: "SET_CURRENT_USER", payload: {username: username.value, avatar: res}});           
-            console.log(e)
             toast.error("Une erreur est survenue, veuillez vérifier vos paramètres.");
         }
     }
