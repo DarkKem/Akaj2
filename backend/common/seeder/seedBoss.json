@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Herpès génital",
+        "pv": 100,
+        "description": "L’herpès génital est une infection sexuellement transmissible très contagieuse provoquée par le virus Herpes simplex (HSV).",
+        "image": "client/public/virus/virus(1).png"
+    },
+    {
+        "name": "Hépatite B",
+        "pv": 100,
+        "description": "Le virus de l’hépatite B (VHB) est très contagieux. Il se transmet surtout par voie sexuelle mais aussi par contact direct ou indirect avec le sang d’une personne infectée, d’où l’importance de la vaccination.",
+        "image": "client/public/virus/virus(2).png"
+    },
+    {
+        "name": "Syphilis",
+        "pv": 100,
+        "description": "La syphilis est une IST causée par la bactérie Treponema pallidum, ou tréponème pâle. Elle touche surtout les hommes ayant des rapports avec des hommes, qui représentent environ 80 % des cas.",
+        "image": "client/public/virus/virus(4).png"
+    },
+    {
+        "name": "Papillomavirus",
+        "pv": 100,
+        "description": "Principal facteur de risque du cancer du col de l’utérus, le virus HPV, aussi appelé papillomavirus, est une IST qui se manifeste par l’apparition de condylomes (verrues génitales) sur les organes génitaux ou l’anus.",
+        "image": "client/public/virus/virus(5).png"
+    },
+    {
+        "name": "Chlamydiose",
+        "pv": 100,
+        "description": "La chlamydiose est une infection d’origine bactérienne difficile à détecter car elle reste souvent silencieuse. Elle est provoquée par la bactérie Chlamydia trachomatis et peut parfois évoluer vers l’infection uro-génitale ou ano-rectale.",
+        "image": "client/public/virus/virus(7).png"
+    },
+    {
+        "name": "VIH",
+        "pv": 100,
+        "description": "L’infection par le VIH est sans doute l’IST dont on entend le plus parler. Le Virus de l’immunodéficience humaine s’attaque aux cellules du système immunitaire et plus précisément aux lymphocytes T4 (globules blancs).",
+        "image": "client/public/virus/virus(8).png"
+    }
+]

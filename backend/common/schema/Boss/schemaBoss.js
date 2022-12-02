@@ -4,7 +4,6 @@ const BossSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true,
-        lowercase: true,
         required: [true, "can't be blank"],
         index: true
     },
