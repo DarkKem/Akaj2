@@ -6,7 +6,7 @@ let nbRoundDiarrhees = 0;
 
 let sida = false;
 
-let bossAttack = ["Brûlures", "Eruption cutanée", "Diarrhées", "Douleurs"];
+let bossAttack = ["Fièvre", "Eruption cutanée", "Diarrhées"];
 
 export const vih = (card, user, boss) => {
     round++;
@@ -16,19 +16,19 @@ export const vih = (card, user, boss) => {
     let bossMessage = "";
     let attaqueDiviseur = 1;
 
-    if (nbRoundFievre === 5) {
+    if (round === 5) {
         sida = true;
     }
 
     // La carte que le joueur a choisi
     switch (card.name) {
-        case "Antiviraux":
+        case "antiviraux ":
             attaqueDiviseur = 2;
             break;
-        case "Préservatif ":
+        case "préservatif":
             nbRoundInvincible = 1;
             break;
-        case "Abstinence sexuelle":
+        case "abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
     }
