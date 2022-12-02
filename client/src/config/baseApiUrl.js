@@ -1,1 +1,1 @@
-export default  process.env.NODE_ENV === 'production' ? 'http://serverURL' : 'http://localhost:3001'
+export default  process.env.NODE_ENV === 'production' ? 'http://82.64.145.48:3002' : 'http://localhost:3001'
