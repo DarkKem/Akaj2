@@ -20,13 +20,13 @@ export const chlamydiose = (card, user, boss) => {
 
     // La carte que le joueur a choisi
     switch (card.name) {
-        case "antibiotiques":
+        case "Antibiotiques":
             nbAntibiotique--;
             break;
-        case "préservatif ":
+        case "Préservatif ":
             nbRoundInvincible = 1;
             break;
-        case "abstinence sexuelle":
+        case "Abstinence sexuelle":
             nbRoundInvincible = 2;
             break;
     }
