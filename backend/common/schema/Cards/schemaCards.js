@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 const CardsSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: true,
         lowercase: true,
         required: [true, "can't be blank"],
         index: true
@@ -22,15 +21,6 @@ const CardsSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'Boss',
         required: true
-    },
-    usage:  {
-        type: String,
-        default: ""
-    },
-    use_by: {
-        type: String,
-        required: true,
-        default: ''
     }
 }, {timestamp: true});
 
