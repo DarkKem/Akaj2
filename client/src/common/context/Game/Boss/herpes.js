@@ -8,6 +8,7 @@ export const herpes = (card, user, boss) => {
     round++;
     let bossHp = boss.pv;
     let userHp = user.pv;
+    let bossMessage = "";
 
     // La carte que le joueur a choisi
     switch (card.cardName) {
@@ -38,12 +39,15 @@ export const herpes = (card, user, boss) => {
         ) {
             case "Vesicules":
                 userHp -= 4;
+                bossMessage = "Le boss vous a attaqué avec des vesicules. Vous perdez 4 pv.";
                 break;
             case "Demangeaisons":
                 userHp -= 2;
+                bossMessage = "Le boss vous a attaqué avec des demangeaisons. Vous perdez 2 pv.";
                 break;
             case "Brulure":
                 nbRoundBrulure = 3;
+                bossMessage = "Le boss vous a attaqué avec une brulure. Vous perdez 1 pv par tour pendant 3 tours.";
                 break;
         }
     }
@@ -51,6 +55,7 @@ export const herpes = (card, user, boss) => {
     // Le joueur perd de la vie si il est brulé
     if (nbRoundBrulure > 0 && bossHp > 0) {
         userHp -= 2;
+        bossMessage += "Vous etes brulé. Vous perdez 1 pv.";
         nbRoundBrulure--;
     }
 
@@ -63,7 +68,7 @@ export const herpes = (card, user, boss) => {
 
     boss.pv = bossHp;
     user.pv = userHp;
-    user.state = nbRoundInvincible > 0 ? "Proteger" : "";
-    user.state = nbRoundBrulure > 0 ? "Brulure" : user.state;
+    user.state = nbRoundInvincible > 0 ? "Proteger " + nbRoundInvincible + "tours" : "";
+    user.state = nbRoundBrulure > 0 ? "Brulure " + nbRoundBrulure + "tours" : user.state;
     return { user, boss };
 };
