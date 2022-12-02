@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import style from './GameWrapper.module.scss'
 import Card from "../Card/Card";
 import AuthContext from "../../context/Auth/AuthContext";
@@ -17,7 +17,10 @@ const GameWrapper = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [showMonsterModal, setShowMonsterModal] = useState(false)
-    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card.boss === currentBoss.name));
+    const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card.boss === currentBoss._id));
+    useEffect(() => {
+        setCardsList(cardsListFromJson.filter((card) => card.boss === currentBoss._id))
+    }, [currentBoss]);
     const handleSelectCard = (cardFromChild) => {
         setCardsList(cardsList.map((cardObject) => ({
                 ...cardObject,

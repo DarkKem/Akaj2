@@ -15,7 +15,7 @@
         "name": "Traitement antiviral",
         "type": "Attaque",
         "description": "-14PV, si utilisez dans les 5 premiers tours, sinon -4PV",
-        "boss": "herpès génital"
+        "boss": "638997fc9e7a0f498e1655c4"
     },
     {
         "name": "Vaccination",
