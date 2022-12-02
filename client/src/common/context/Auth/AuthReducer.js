@@ -1,16 +1,10 @@
 const AuthReducer = (state, action) => {
     switch (action.type) {
-        case 'SET_CURRENT_CHAT':
-            localStorage.setItem("user", JSON.stringify({
-                username: action.payload?.username,
-                avatar: action.payload?.avatar
-            }))
-            localStorage.setItem("avatar", JSON.stringify(action.payload?.avatar))
+        case 'SET_CURRENT_USER':
+            localStorage.setItem("user", JSON.stringify(action.payload))
             return {
                 ...state,
-                user: {
-                    ...action.payload
-                }
+                user: JSON.stringify(action.payload)
             }
         default:
             return state

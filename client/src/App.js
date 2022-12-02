@@ -7,10 +7,11 @@ import {ToastContainer} from 'react-toastify'
 import Welcome from "./common/page/Welcome/Welcome";
 import Navbar from "./common/component/Navbar/Navbar";
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './common/context/Auth/AuthContext';
 
 function App() {
     return (
-        <>
+        <AuthProvider>
             <Router>
                 <div className={style.App}>
                     <header className={style.AppHeader}>
@@ -25,7 +26,7 @@ function App() {
                 </div>
                 <ToastContainer theme={"dark"} autoClose={false}/>
             </Router>
-        </>
+        </AuthProvider>
     );
 }
 
