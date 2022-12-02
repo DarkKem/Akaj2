@@ -19,7 +19,7 @@ const GameWrapper = () => {
     const [showMonsterModal, setShowMonsterModal] = useState(false)
     const [cardsList, setCardsList] = useState(cardsListFromJson.filter((card) => card?.boss === currentBoss?._id));
     useEffect(() => {
-        setCardsList(cardsListFromJson.filter((card) => card?.boss === currentBoss._id))
+        setCardsList(cardsListFromJson.filter((card) => card?.boss === currentBoss?._id))
     }, [currentBoss]);
     const handleSelectCard = (cardFromChild) => {
         setCardsList(cardsList.map((cardObject) => ({

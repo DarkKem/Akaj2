@@ -38,6 +38,7 @@ const Home = () => {
             }
         })
         dispatch({type: 'SET_BOSS_INDEX', payload: bossIndex + 1})
+        console.log('currfent boss', bossList[bossIndex])
         dispatch({type: 'SET_CURRENT_BOSS', payload: bossList[bossIndex]})
         if (bossIndex >= bossList.length) {
             dispatch({type: 'SET_BOSS_INDEX', payload: 0})
@@ -54,7 +55,7 @@ const Home = () => {
             navigate("/game-over")
         }
 
-    }, [user, currentBoss]);
+    }, [user.pv, currentBoss.pv]);
     return (
         <div>
             <GameWrapper/>
